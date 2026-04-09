@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — AM Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- ── Sidebar ─────────────────────────────────────────────── -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">FX</div>
+      <span>ForexCRM Pro</span>
+    </div>
+
+    <div class="sidebar-section-label">Menu</div>
+
+    <div class="nav-item active" data-section="portfolio">
+      <span class="nav-icon">👥</span>
+      <span class="nav-label">Client Portfolio</span>
+    </div>
+    <div class="nav-item" data-section="deposits">
+      <span class="nav-icon">💰</span>
+      <span class="nav-label">Deposits Today</span>
+    </div>
+    <div class="nav-item" data-section="accounts">
+      <span class="nav-icon">📊</span>
+      <span class="nav-label">Active Accounts</span>
+    </div>
+    <div class="nav-item" data-section="followups">
+      <span class="nav-icon">🔔</span>
+      <span class="nav-label">Follow-ups</span>
+    </div>
+    <div class="nav-item" data-section="notes">
+      <span class="nav-icon">📝</span>
+      <span class="nav-label">Notes</span>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="logout-btn" id="logoutBtn">
+        <span style="font-size:15px">⏏</span>
+        <span>Log out</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- ── Main ───────────────────────────────────────────────── -->
+  <div class="main">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
+        <span class="header-title">Account Manager Dashboard</span>
+      </div>
+      <div class="header-right">
+        <span class="header-date" id="headerDate"></span>
+        <div class="avatar" title="Your profile"></div>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <div class="content">
+
+      <div class="content-header">
+        <h2 id="sectionTitle">Client Portfolio</h2>
+        <p>Hello, <span id="greetName">there</span> — here's your overview for today.</p>
+      </div>
+
+      <!-- Stat cards -->
+      <div class="stats-grid">
+
+        <div class="stat-card blue">
+          <div class="stat-icon blue">👥</div>
+          <div class="stat-label">Total Clients</div>
+          <div class="stat-value count-up" data-target="248">0</div>
+          <span class="stat-badge up">▲ 3.2% vs last month</span>
+        </div>
+
+        <div class="stat-card green">
+          <div class="stat-icon green">💰</div>
+          <div class="stat-label">Today's Deposits</div>
+          <div class="stat-value count-up" data-prefix="$" data-target="84500">$0</div>
+          <span class="stat-badge up">▲ 12% vs yesterday</span>
+        </div>
+
+        <div class="stat-card amber">
+          <div class="stat-icon amber">📊</div>
+          <div class="stat-label">Active Accounts</div>
+          <div class="stat-value count-up" data-target="176">0</div>
+          <span class="stat-badge neu">— same as last week</span>
+        </div>
+
+        <div class="stat-card purple">
+          <div class="stat-icon purple">🔔</div>
+          <div class="stat-label">Pending Follow-ups</div>
+          <div class="stat-value count-up" data-target="14">0</div>
+          <span class="stat-badge down">▼ 2 new today</span>
+        </div>
+
+      </div>
+
+      <!-- Bottom panels -->
+      <div class="bottom-grid">
+
+        <!-- Recent Clients table -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Recent Clients</span>
+            <span class="panel-action">View all</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Account</th>
+                  <th>Balance</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Marcus Reid</td>
+                  <td>#10482</td>
+                  <td>$24,300</td>
+                  <td><span class="badge active">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Sophia Chen</td>
+                  <td>#10471</td>
+                  <td>$8,750</td>
+                  <td><span class="badge active">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Daniel Osei</td>
+                  <td>#10465</td>
+                  <td>$1,200</td>
+                  <td><span class="badge pending">Pending</span></td>
+                </tr>
+                <tr>
+                  <td>Amelia Torres</td>
+                  <td>#10458</td>
+                  <td>$36,900</td>
+                  <td><span class="badge active">Active</span></td>
+                </tr>
+                <tr>
+                  <td>Liam Novak</td>
+                  <td>#10443</td>
+                  <td>$0</td>
+                  <td><span class="badge inactive">Inactive</span></td>
+                </tr>
+                <tr>
+                  <td>Priya Sharma</td>
+                  <td>#10436</td>
+                  <td>$15,600</td>
+                  <td><span class="badge active">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Follow-ups list -->
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Upcoming Follow-ups</span>
+            <span class="panel-action">Add new</span>
+          </div>
+          <div class="followup-list">
+
+            <div class="followup-item">
+              <div class="followup-dot high"></div>
+              <div>
+                <div class="followup-name">Marcus Reid</div>
+                <div class="followup-note">Discuss EUR/USD position sizing</div>
+              </div>
+              <span class="followup-time">Today 14:00</span>
+            </div>
+
+            <div class="followup-item">
+              <div class="followup-dot high"></div>
+              <div>
+                <div class="followup-name">Amelia Torres</div>
+                <div class="followup-note">Quarterly review call</div>
+              </div>
+              <span class="followup-time">Today 16:30</span>
+            </div>
+
+            <div class="followup-item">
+              <div class="followup-dot medium"></div>
+              <div>
+                <div class="followup-name">Sophia Chen</div>
+                <div class="followup-note">KYC document reminder</div>
+              </div>
+              <span class="followup-time">Tomorrow</span>
+            </div>
+
+            <div class="followup-item">
+              <div class="followup-dot medium"></div>
+              <div>
+                <div class="followup-name">Daniel Osei</div>
+                <div class="followup-note">Onboarding — first deposit push</div>
+              </div>
+              <span class="followup-time">Thu 10:00</span>
+            </div>
+
+            <div class="followup-item">
+              <div class="followup-dot low"></div>
+              <div>
+                <div class="followup-name">Priya Sharma</div>
+                <div class="followup-note">Check in on new strategy</div>
+              </div>
+              <span class="followup-time">Fri 11:00</span>
+            </div>
+
+            <div class="followup-item">
+              <div class="followup-dot low"></div>
+              <div>
+                <div class="followup-name">Liam Novak</div>
+                <div class="followup-note">Re-activation campaign follow-up</div>
+              </div>
+              <span class="followup-time">Fri 15:00</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /content -->
+  </div><!-- /main -->
+
+</div><!-- /dashboard -->
+
+<script src="app.js"></script>
+<script>initDashboard();</script>
+</body>
+</html>
